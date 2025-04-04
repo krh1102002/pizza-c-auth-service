@@ -14,6 +14,10 @@ export default defineConfig([
         files: ['**/*.{js,mjs,cjs,ts}'],
         plugins: { js },
         extends: ['js/recommended'],
+        rules: {
+            // 'no-console': 'error',
+            'dot-notation': 'error',
+        },
     },
     tseslint.configs.recommended,
 ]);
