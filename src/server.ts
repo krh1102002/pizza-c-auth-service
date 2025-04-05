@@ -1,11 +1,17 @@
-function welcome(message: string) {
-    console.log(`${message}`);
-    console.log('hello from kunal');
-    const user = {
-        name: 'kunal hulke',
-    };
-    const fname = user.name;
-    return fname + message;
-}
+import app from './app';
+import { Config } from './config';
 
-console.log(welcome('hello everyone'));
+const startServer = () => {
+    const PORT = Config.PORT;
+    try {
+        app.listen(PORT, () => {
+            // eslint-disable-next-line no-console
+            console.log(`Server is running on ${PORT}`);
+        });
+    } catch (err) {
+        // eslint-disable-next-line no-console
+        console.error(err);
+    }
+};
+
+startServer();
