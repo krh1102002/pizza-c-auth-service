@@ -1,7 +1,9 @@
+// importing the components
 import app from './app';
-import { Config } from './config';
 import logger from './config/logger';
+import { Config } from './config';
 
+// function to start the server
 const startServer = () => {
     const PORT = Config.PORT;
     try {

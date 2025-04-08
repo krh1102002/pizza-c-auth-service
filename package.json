@@ -37,8 +37,10 @@
         ]
     },
     "dependencies": {
+        "@types/http-errors": "^2.0.4",
         "dotenv": "^16.4.7",
         "express": "^5.1.0",
+        "http-errors": "^2.0.0",
         "winston": "^3.17.0"
     }
 }

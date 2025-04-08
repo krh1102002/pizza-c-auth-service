@@ -18,7 +18,7 @@ const logger = winston.createLogger({
             silent: Config.NODE_ENV === 'TEST',
         }),
         new winston.transports.File({
-            level: 'info',
+            level: 'debug',
             dirname: 'logs',
             filename: 'combined.log',
             format: winston.format.combine(
