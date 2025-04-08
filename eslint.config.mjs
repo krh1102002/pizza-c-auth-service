@@ -18,6 +18,7 @@ export default defineConfig([
             'no-console': 'error',
             'dot-notation': 'error',
         },
+        ignores: ['dist', 'eslint.config.mjs', 'node_modules'],
     },
     tseslint.configs.recommended,
 ]);

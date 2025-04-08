@@ -7,6 +7,8 @@ const app = express();
 // in the above code if we use async before the call of the req and res then it won't be catch by the global error handler it will creash the whole development.
 
 app.get('/', async (req, res) => {
+    // created for testing the http requests
+    // res.status(201).send('welcome to the auth service');
     res.send('welcome to the auth service');
 });
 
