@@ -28,9 +28,7 @@ describe('/auth/register', () => {
                 password: 'securePassword123',
             };
             // Act: call the function or method being tested
-            const res = await request(app)
-                .post('/auth/register')
-                .send(userData);
+            await request(app).post('/auth/register').send(userData);
 
             // Assert: check the result
             // we were using toEqual instead of toBe because we got object as a response from the response that's why we have to equate it to
