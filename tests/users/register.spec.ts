@@ -45,6 +45,18 @@ describe('/auth/register', () => {
                 (res.headers as Record<string, string>)['content-type'],
             ).toEqual(expect.stringContaining('json'));
         });
+
+        it('should persist the user in databases', async () => {
+            // Arrange: set up the test case
+            const userData = {
+                firstName: 'john',
+                lastName: 'doe',
+                email: 'john.doe@example.com',
+                password: 'securePassword123',
+            };
+            // Act: call the function or method being tested
+            await request(app).post('/auth/register').send(userData);
+        });
     });
 
     describe('given missing fields', () => {});

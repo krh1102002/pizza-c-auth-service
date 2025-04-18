@@ -4,13 +4,15 @@
     "description": "The user management service",
     "main": "index.js",
     "scripts": {
-        "dev": "nodemon src/server.ts",
+        "dev": "cross-env NODE_ENV=dev nodemon src/server.ts",
         "format:fix": "prettier . --write",
         "format:check": "prettier . --check",
         "lint:check": "eslint .",
         "lint:fix": "eslint . --fix",
         "test": "jest --watch --runInBand",
-        "prepare": "husky"
+        "prepare": "husky",
+        "start": "ts-node src/index.ts",
+        "typeorm": "typeorm-ts-node-commonjs"
     },
     "author": "Kunal Hulke",
     "license": "ISC",
@@ -23,6 +25,7 @@
         "@types/winston": "^2.4.4",
         "@typescript-eslint/eslint-plugin": "^8.29.0",
         "@typescript-eslint/parser": "^8.29.0",
+        "cross-env": "^7.0.3",
         "eslint": "^9.23.0",
         "globals": "^16.0.0",
         "husky": "^9.1.7",
@@ -47,6 +50,9 @@
         "dotenv": "^16.4.7",
         "express": "^5.1.0",
         "http-errors": "^2.0.0",
+        "pg": "^8.14.1",
+        "reflect-metadata": "^0.2.2",
+        "typeorm": "0.3.22",
         "winston": "^3.17.0"
     }
 }

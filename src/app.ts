@@ -1,3 +1,5 @@
+// importing the reflect-metadata over here because it must be run at least once so that's why we have to import over here.
+import 'reflect-metadata';
 import express, { NextFunction, Request, Response } from 'express';
 import { HttpError } from 'http-errors';
 import logger from './config/logger';
