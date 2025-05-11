@@ -1,7 +1,7 @@
 import { config } from 'dotenv';
 import path from 'node:path';
 
-// ../../.env.${process.env.NODE_ENV} we have use this path for different enviornment like development,production,testing
+// ../../.env.${process.env.NODE_ENV} we have use this path for different environment like development,production,testing
 
 // i have write cross env package command in the package.json over there if that is in the dev env
 config({ path: path.join(__dirname, `../../.env.${process.env.NODE_ENV}`) });

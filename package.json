@@ -4,6 +4,7 @@
     "description": "The user management service",
     "main": "index.js",
     "scripts": {
+        "_comment": "jest will change the NODE_ENV variable value we don't need to change explicitly.",
         "dev": "cross-env NODE_ENV=dev nodemon src/server.ts",
         "format:fix": "prettier . --write",
         "format:check": "prettier . --check",
@@ -17,10 +18,12 @@
     "author": "Kunal Hulke",
     "license": "ISC",
     "devDependencies": {
+        "@types/node": "^22.14.0",
+        "ts-node": "^10.9.2",
+        "typescript": "^5.8.2",
         "@eslint/js": "^9.23.0",
         "@types/express": "^5.0.1",
         "@types/jest": "^29.5.14",
-        "@types/node": "^22.14.0",
         "@types/supertest": "^6.0.3",
         "@types/winston": "^2.4.4",
         "@typescript-eslint/eslint-plugin": "^8.29.0",
@@ -34,8 +37,6 @@
         "prettier": "3.5.3",
         "supertest": "^7.1.0",
         "ts-jest": "^29.3.1",
-        "ts-node": "^10.9.2",
-        "typescript": "^5.8.2",
         "typescript-eslint": "^8.29.0"
     },
     "lint-staged": {
