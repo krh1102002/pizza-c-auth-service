@@ -5,6 +5,7 @@ import { HttpError } from 'http-errors';
 import logger from './config/logger';
 import authRouter from './routes/auth';
 const app = express();
+app.use(express.json());
 
 // in the above code if we use async before the call of the req and res then it won't be catch by the global error handler it will creash the whole development.
 app.get('/', async (req, res) => {
