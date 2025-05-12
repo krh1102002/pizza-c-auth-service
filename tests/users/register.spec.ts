@@ -3,7 +3,8 @@ import app from './../../src/app';
 import request from 'supertest';
 import { AppDataSource } from './../../src/config/data-source';
 import { User } from '../../src/entity/User';
-import { truncateTables } from '../utils';
+import { roles } from '../../src/constants';
+
 describe('POST /auth/register', () => {
     let connection: DataSource;
 
@@ -14,7 +15,10 @@ describe('POST /auth/register', () => {
 
     beforeEach(async () => {
         //truncate Tables....
-        await truncateTables(connection);
+        // await truncateTables(connection);    if we do truncate table then when we add new column inside a table then it won't synchronize it properly
+        // solution:------
+        await connection.dropDatabase();
+        await connection.synchronize();
     });
 
     // it will run after all the test is getting executed
@@ -107,6 +111,24 @@ describe('POST /auth/register', () => {
             expect((response.body as Record<string, string>).id).toBe(
                 users[0].id,
             );
+        });
+        it('should assign a customer role', async () => {
+            // Arrange
+            const userData = {
+                firstName: 'Rakesh',
+                lastName: 'K',
+                email: 'rakesh@mern.space',
+                password: 'password',
+            };
+
+            // Act
+            await request(app).post('/auth/register').send(userData);
+
+            // assert
+            const userRepository = connection.getRepository(User);
+            const users = await userRepository.find();
+            expect(users[0]).toHaveProperty('role');
+            expect(users[0].role).toBe(roles.CUSTOMER);
         });
     });
 
